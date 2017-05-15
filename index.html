@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VMS tab</title>
+    <style>
+        body{
+            display:flex;
+        }
+        section{
+            display:flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>TOTO</h2>
+        <form action="maison" methode="post">
+            <div>
+                <label for="title">Entrez un titre :</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="commit">Commentaire :</label>
+                <input type="textarea" id="commit" name="commit">
+            </div>
+            <div>
+                <button type="submit">Envoyez</button>
+            </div>
+        </form>
+    </section>
+    <section>
+        <h2>REVIEW</h2
+    </section>
+    <script>
+
+        /*let tab = [];
+        let i = 0;
+        function poussez(objet){
+            tab.push(objet);
+        }
+        function effacez(objet){
+            tab.splice(objet, 1);
+        }
+
+        document.querySelector("form").addEventListener("submit", function(e){
+            e.preventDefault();
+            let recupvalue = new Object; // creation objet
+            recupvalue.titre = document.body.querySelector("input").value; // creation sous categorie objet
+            recupvalue.comment = document.body.querySelector("#commit").value;
+            
+            poussez(recupvalue); // push les valeurs dans donnés
+            
+            let newdiv = document.createElement("div"); // section creation
+            let newbutton = document.createElement("button");
+            newbutton.textContent = "Delete"
+
+            newdiv.textContent = tab[i].titre + tab[i].comment; // section pushing
+            document.body.querySelector("section:last-child").appendChild(newdiv);
+            newdiv.appendChild(newbutton);
+            i++;
+
+            newbutton.addEventListener("click", function(){ // create event for delete
+                i--;
+                effacez(tab[i]);
+                document.body.querySelector("section:last-child").removeChild(newdiv);
+            });
+        });*/
+        let tab = [];
+        function poussez(objet){
+            tab.push(objet);
+        }
+        function effacez(objet){
+            tab.splice(objet, 1);
+        }
+        do{ // dowhile pour iterer au moins une fois sachant que tab = 0 au debut
+            document.querySelector("form").addEventListener("submit", function(e){
+                e.preventDefault();
+                let recupvalue = new Object; // creation objet
+                recupvalue.titre = document.body.querySelector("input").value; // creation sous categorie objet
+                recupvalue.comment = document.body.querySelector("#commit").value;
+                
+                poussez(recupvalue); // push les valeurs dans donnés
+                
+                let newdiv = document.createElement("div"); // section creation
+                let newbutton = document.createElement("button");
+                newbutton.textContent = "Delete"
+
+                newdiv.textContent = tab[i].titre + tab[i].comment; // section pushing
+                document.body.querySelector("section:last-child").appendChild(newdiv);
+                newdiv.appendChild(newbutton);
+                i++;
+                
+
+                newbutton.addEventListener("click", function(){ // create event for delete
+                    effacez(tab[i]);
+                    document.body.querySelector("section:last-child").removeChild(newdiv);
+                    i--;
+                });
+            });
+        }while(i = 0 && i < tab.length);
+    </script>
+</body>
+</html>
